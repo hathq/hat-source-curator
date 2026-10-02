@@ -1,0 +1,38 @@
+# Modified by the Hatter downstream project, 2026.
+# Purpose: make the external adapter own provider incarnation issuance.
+[package]
+exclude = ["/registration/**", "/state/**", "/.local/**", "/.state/**", "/.data/**", "/secrets/**", "/credentials/**", "/.env", "/.env.production", "/.env.local", "/*.tgz", "/*.tar.gz", "/*.tar", "/*.zip", "/*.whl", "/*.crate", "/.ruff_cache/**", "/.mypy_cache/**", "/.tox/**", "/.nox/**", "/.hypothesis/**", "/.coverage", "/.coverage.*", "/htmlcov/**", "/lcov.info", "/junit.xml", "/*.profraw", "/*.profdata", "/*.egg-info/**", "/target/**", "/node_modules/**", "/dist/**", "/build/**", "/.cache/**", "/.pytest_cache/**", "/coverage/**"]
+name = "hat-source-curator"
+description = "External source decomposition and owner-declared input binding for HAT workflows"
+version = "0.10.0"
+edition = "2024"
+rust-version = "1.97"
+license = "Apache-2.0"
+publish = ["ecosystem-private"]
+
+[[bin]]
+name = "hat-source-curator-worker"
+path = "src/main.rs"
+
+[dependencies]
+crowsi-transport-foundation = { version = "=0.10.0", registry = "ecosystem-private", features = ["async-io"] }
+tokio = { version = "1", features = ["macros", "rt", "net", "signal", "time"] }
+sem-lang-frontend = { version = "=0.10.0", registry = "ecosystem-private" }
+sem-lang-core = { version = "=0.10.0", registry = "ecosystem-private" }
+hat-specifications = { version = "=0.10.0", registry = "ecosystem-private" }
+zixcel-interaction = { version = "=0.10.0", registry = "zixcel-private" }
+hex = "0.4.3"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+sha2 = "0.10.9"
+uuid = { version = "1", features = ["v4"] }
+
+[dev-dependencies]
+serde_json = "1.0.150"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"

@@ -1,0 +1,174 @@
+{
+  "schema": "hathq://hat/package/v2",
+  "package_id": "hat/source-curator",
+  "repository_id": "hat-source-curator",
+  "version": "0.10.0",
+  "specification_version": "1.0.0",
+  "manifest": {
+    "schema": "hathq://hat/manifest/v1",
+    "id": "hat/source-curator",
+    "name": "Source Curator",
+    "version": "0.10.0",
+    "capabilities": [
+      "source-input-binding",
+      "source-evaluation",
+      "evidence-summarization"
+    ],
+    "decision_boundaries": [
+      "recommend-source-acceptance"
+    ],
+    "input_classifications": [
+      "public",
+      "internal"
+    ],
+    "output_classification": "internal",
+    "permissions": [
+      {
+        "resource": "knowledge-source",
+        "operations": [
+          "inspect-metadata",
+          "propose-classification"
+        ],
+        "mode": "propose"
+      }
+    ]
+  },
+  "operations": [
+    {
+      "id": "hathq://vocabulary/action/review-source/v1",
+      "input_schema": "hathq://hat-source-curator/review-source-input/v1",
+      "output_schema": "hathq://hat-source-curator/review-source-output/v1",
+      "context_plan": {
+        "id": "review-source-context",
+        "selectors": [
+          {
+            "namespace": "knowledge-source",
+            "projection_schema": "hathq://hat-source-curator/knowledge-source/v1",
+            "required": true
+          }
+        ],
+        "unresolved_policy": "record-unresolved"
+      },
+      "reducer": {
+        "id": "review-source-reducer",
+        "strategy": "typed-domain-event",
+        "event_schema": "hathq://hat-source-curator/review-source-event/v1",
+        "projection_schema": "hathq://hat-source-curator/review-source-projection/v1",
+        "conflict_policy": "reject"
+      },
+      "procedure": {
+        "id": "review-source-procedure",
+        "steps": [
+          {
+            "action_id": "hathq://vocabulary/action/review-source/v1",
+            "input_schema": "hathq://hat-source-curator/review-source-input/v1",
+            "output_schema": "hathq://hat-source-curator/review-source-output/v1"
+          }
+        ]
+      },
+      "handler": {
+        "kind": "declarative-hat",
+        "reference": "review-source-procedure"
+      }
+    }
+  ],
+  "catalog": {
+    "schema": "hathq://hat/semantic-catalog/v1",
+    "identity": {
+      "catalog_id": "hat-source-curator",
+      "version": 1,
+      "digest_sha256": "48ec92467f4ceca865d19c26e399a6363fe3bedffc9603a039e3633cf4cbd935"
+    },
+    "owner_repository_id": "hat-source-curator",
+    "foundation": false,
+    "dependencies": [
+      {
+        "catalog_id": "hathq.foundation",
+        "version": 1,
+        "digest_sha256": "6b618dff030e551bafd6b1a70fe6daf71e2873de9c2230f4cf71e9ac9fbf2c0f"
+      }
+    ],
+    "incompatibilities": [],
+    "terms": [
+      {
+        "reference": {
+          "catalog_id": "hat-source-curator",
+          "catalog_digest_sha256": "48ec92467f4ceca865d19c26e399a6363fe3bedffc9603a039e3633cf4cbd935",
+          "term_id": "hathq://vocabulary/entity/knowledge-source/v1",
+          "version": 1,
+          "definition_digest_sha256": "fd9fcd2eee012fe2789ff04747d88806982b6502a0b9693e73476e60259435f9",
+          "kind": "entity-type"
+        },
+        "wire_schema": "hathq://hat-source-curator/knowledge-source/v1",
+        "semantic_icon": "generic",
+        "dependencies": [],
+        "is_a": [],
+        "domain": [],
+        "range": []
+      },
+      {
+        "reference": {
+          "catalog_id": "hat-source-curator",
+          "catalog_digest_sha256": "48ec92467f4ceca865d19c26e399a6363fe3bedffc9603a039e3633cf4cbd935",
+          "term_id": "hathq://vocabulary/state/source-classification/v1",
+          "version": 1,
+          "definition_digest_sha256": "2ef5af2ca017a005ec6ab6e4efc05c418077a9433a5fd6883581c677b395d7ae",
+          "kind": "state-type"
+        },
+        "wire_schema": "hathq://hat-source-curator/source-classification/v1",
+        "semantic_icon": "generic",
+        "dependencies": [],
+        "is_a": [],
+        "domain": [],
+        "range": []
+      },
+      {
+        "reference": {
+          "catalog_id": "hat-source-curator",
+          "catalog_digest_sha256": "48ec92467f4ceca865d19c26e399a6363fe3bedffc9603a039e3633cf4cbd935",
+          "term_id": "hathq://vocabulary/action/review-source/v1",
+          "version": 1,
+          "definition_digest_sha256": "59a350bb16486acab3b9660cdc88f025d7d339dde0dfab1c7af525e55712526b",
+          "kind": "action"
+        },
+        "wire_schema": "hathq://hat-source-curator/review-source-input/v1",
+        "semantic_icon": "generic",
+        "dependencies": [],
+        "is_a": [],
+        "domain": [],
+        "range": []
+      }
+    ],
+    "lexicalizations": [],
+    "frames": [
+      {
+        "frame_id": "review-source-procedure-frame",
+        "definition_digest_sha256": "66967d47aab60508b4b66a4e56f444ddd3393bd77d5788eda74148e57e1e2601",
+        "predicate": {
+          "catalog_id": "hat-source-curator",
+          "catalog_digest_sha256": "48ec92467f4ceca865d19c26e399a6363fe3bedffc9603a039e3633cf4cbd935",
+          "term_id": "hathq://vocabulary/action/review-source/v1",
+          "version": 1,
+          "definition_digest_sha256": "59a350bb16486acab3b9660cdc88f025d7d339dde0dfab1c7af525e55712526b",
+          "kind": "action"
+        },
+        "roles": [
+          {
+            "role": "actor",
+            "required": true,
+            "accepted_kinds": [
+              "entity-type"
+            ]
+          },
+          {
+            "role": "object",
+            "required": true,
+            "accepted_kinds": [
+              "concept"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
