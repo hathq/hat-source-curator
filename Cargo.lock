@@ -266,7 +266,7 @@ checksum = "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f"
 name = "sem-lang-context"
 version = "0.10.0"
 source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "26681792afa6a759df52e63bf83ef6b7d821efb9a8a383f0e09059d2be00d7e0"
+checksum = "33da7f6fc0dfba45dc18e01e2f22ecf13c86137317ca115ce1548b99b1132a57"
 dependencies = [
  "sem-lang-core",
  "sem-lang-repository",
@@ -280,7 +280,7 @@ dependencies = [
 name = "sem-lang-core"
 version = "0.10.0"
 source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "fe2b821f7126f2914ac9be539eb67952f9f80426f60f4410161e2495ea2981ed"
+checksum = "277bcc267f42d085ed066d32a825027155cf8c4db795acb1525270e08a719e16"
 dependencies = [
  "serde",
  "serde_json",
@@ -293,7 +293,7 @@ dependencies = [
 name = "sem-lang-frontend"
 version = "0.10.0"
 source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "32dd063864ab3c17cac43f12b4ebf58bfee4f85d16f3d6f65602b35625b5faf2"
+checksum = "aa28b3bee82ef6c69c41e0a4d408f4abb76b86d79d84d6db9076e4fbd96a58cb"
 dependencies = [
  "sem-lang-context",
  "sem-lang-core",
@@ -309,7 +309,7 @@ dependencies = [
 name = "sem-lang-language"
 version = "0.10.0"
 source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "83de46cd5e64e2cedb4fcc912464decca334ba6add109a70e26f3acbd2005e3c"
+checksum = "c88796a43fc4a6d4e8ce7ffa1af8e4541718732049f7846f487574c345720c1d"
 dependencies = [
  "sem-lang-core",
  "sem-lang-linguistics",
@@ -322,7 +322,7 @@ dependencies = [
 name = "sem-lang-linguistics"
 version = "0.10.0"
 source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "a6fb3523ee6a32da1ac82305398e725b651d222c75bc1e96c6622b9fec0a6662"
+checksum = "0ca050bfaa48555a7058e62eef6ea854b1f8f5a58114f04caeeb30fc1daf3e61"
 dependencies = [
  "sem-lang-core",
  "serde",
@@ -334,7 +334,7 @@ dependencies = [
 name = "sem-lang-repository"
 version = "0.10.0"
 source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "fe3ee9b1a77dad19a62c9e6b60836b8cf0ae97af4211bad4fee97b2e924cfc5c"
+checksum = "8a502718dd072094fdc4cc726a1d8b39725d4817400bd9969a15a05c897147d6"
 dependencies = [
  "sem-lang-core",
  "serde",
@@ -347,7 +347,7 @@ dependencies = [
 name = "sem-lang-vocab"
 version = "0.10.0"
 source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "bbeee6374e14e107628ebfa8342322d9c178b1aad2b7777265dfb504559a149f"
+checksum = "48cc94badd054a73664881a38db6d2e1d85bf9fb28149e223c2535adc0661a81"
 dependencies = [
  "sem-lang-core",
  "sem-lang-linguistics",
