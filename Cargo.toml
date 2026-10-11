@@ -15,12 +15,12 @@ name = "hat-source-curator-worker"
 path = "src/main.rs"
 
 [dependencies]
-crowsi-transport-foundation = { version = "=0.10.0", registry = "ecosystem-private", features = ["async-io"] }
+crowsi-transport-foundation = { version = "=0.10.0", features = ["async-io"] }
 tokio = { version = "1", features = ["macros", "rt", "net", "signal", "time"] }
 sem-lang-frontend = { version = "=0.10.0", registry = "ecosystem-private" }
 sem-lang-core = { version = "=0.10.0", registry = "ecosystem-private" }
-hat-specifications = { version = "=0.10.0", registry = "ecosystem-private" }
-zixcel-interaction = { version = "=0.10.0", registry = "zixcel-private" }
+hat-specifications = { version = "=0.10.0" }
+zixcel-interaction = { version = "=0.10.0" }
 hex = "0.4.3"
 serde = { version = "1.0.229", features = ["derive"] }
 serde_json = "1.0.151"
