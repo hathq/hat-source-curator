@@ -30,3 +30,5 @@ cargo test --locked
 ## Source structure boundary
 
 Generic JSON decomposition is owned by `zixcel-json-structure` in `zixcel/document-processing`. This role binds source revisions and declared input, preserving source metadata. The public input contains no Sem-lang CompileContext, semantic budget or authority. Language interpretation must add its own explicit context in the language owner. Arrays preserve order instead of being treated as unordered records. The current source interface replaces the private-language-coupled form; no compatibility decoder is retained.
+
+[OSS responsibility and source completion](docs/oss-source-contract.md) defines the supported package boundary and required acceptance. It does not declare unexecuted source, distribution or production checks complete.

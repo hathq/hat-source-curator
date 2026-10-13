@@ -10,12 +10,12 @@ jobs:
   verify:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
-    env:
-      CARGO_HOME: ${{ runner.temp }}/public-cargo
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
+      - name: Use an independent public Cargo home
+        run: echo "CARGO_HOME=$RUNNER_TEMP/public-cargo" >> "$GITHUB_ENV"
       - name: Install supported Rust and source checks
         run: rustup toolchain install 1.97 --profile minimal --component rustfmt --component clippy
       - run: cargo +1.97 fmt --all -- --check
