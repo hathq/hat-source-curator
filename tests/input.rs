@@ -28,9 +28,7 @@ fn plan() -> OwnerInput {
         "fields":{"opaque-field":{"label":"Contact","sensitive":false}}},
       "source_revision":"original:one",
       "source":{"reference":"source:one","document":{"private":{"marker":"@","value":"before"}},"pointer":"/private",
-        "context":{"subject":{"id":"owner","class":"person"},"evidence":[],"at":null,"locale":"en",
-          "semantic_revision":"exact:semantic","context_refs":[],"context_scope":"CurrentRequest","observation_evidence":[]},
-        "budget":{"max_nodes":128,"max_edges":256,"max_candidates":128,"max_steps":32768,"max_depth":32,"max_bytes":65536}},
+        "budget":{"max_nodes":128,"max_depth":32,"max_bytes":65536}},
       "bindings":{"opaque-field":"/value"}})).unwrap();
     p.declaration.action.contract_revision = p.contract_ref().unwrap();
     p
@@ -54,7 +52,7 @@ fn exact_private_binding_preserves_fixed_values_and_original_source() {
         .as_array()
         .unwrap()
         .iter()
-        .filter_map(|n| n["shape"]["Value"]["Text"].as_str())
+        .filter_map(|n| n["shape"]["Scalar"].as_str())
         .collect();
     assert!(values.contains(&"after"));
     assert!(values.contains(&"@"));

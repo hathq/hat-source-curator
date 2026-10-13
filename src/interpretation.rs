@@ -2,25 +2,21 @@
 //! original field; only raw property values enter structural interpretation.
 use crate::structure::{Decomposition, decompose};
 use hat_specifications::{HatSemanticContribution, SemanticScalar};
-use sem_lang_frontend::{
-    CompileContext,
-    current::structural::{StructuralBudget, StructuralInput},
-};
 use serde::{Deserialize, Serialize};
 use serde_json::{Value, json};
 use std::collections::BTreeMap;
+use zixcel_json_structure::{SourceTree, StructureBudget};
 
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct InterpretationContract {
     pub source: HatSemanticContribution,
-    pub context: CompileContext,
-    pub budget: StructuralBudget,
+    pub budget: StructureBudget,
 }
 #[derive(Serialize)]
 pub struct SourceObservation {
     pub locator: String,
-    pub input: Option<StructuralInput>,
+    pub input: Option<SourceTree>,
     pub failure: Option<&'static str>,
 }
 #[derive(Serialize)]
@@ -54,7 +50,6 @@ pub fn interpret(request: InterpretationContract) -> Result<SourceRepresentation
                 reference: format!("{}#{locator}", source.canonical_source.id),
                 document,
                 pointer: String::new(),
-                context: request.context.clone(),
                 budget: request.budget.clone(),
             })
         });

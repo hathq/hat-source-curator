@@ -141,14 +141,13 @@ dependencies = [
  "crowsi-transport-foundation",
  "hat-specifications",
  "hex",
- "sem-lang-core",
- "sem-lang-frontend",
  "serde",
  "serde_json",
  "sha2",
  "tokio",
  "uuid",
  "zixcel-interaction",
+ "zixcel-json-structure",
 ]
 
 [[package]]
@@ -261,100 +260,6 @@ name = "rustversion"
 version = "1.0.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f"
-
-[[package]]
-name = "sem-lang-context"
-version = "0.10.0"
-source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "33da7f6fc0dfba45dc18e01e2f22ecf13c86137317ca115ce1548b99b1132a57"
-dependencies = [
- "sem-lang-core",
- "sem-lang-repository",
- "serde",
- "serde_json",
- "thiserror",
- "zixcel-revision",
-]
-
-[[package]]
-name = "sem-lang-core"
-version = "0.10.0"
-source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "277bcc267f42d085ed066d32a825027155cf8c4db795acb1525270e08a719e16"
-dependencies = [
- "serde",
- "serde_json",
- "sha2",
- "thiserror",
- "zixcel-revision",
-]
-
-[[package]]
-name = "sem-lang-frontend"
-version = "0.10.0"
-source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "aa28b3bee82ef6c69c41e0a4d408f4abb76b86d79d84d6db9076e4fbd96a58cb"
-dependencies = [
- "sem-lang-context",
- "sem-lang-core",
- "sem-lang-language",
- "sem-lang-linguistics",
- "sem-lang-vocab",
- "serde",
- "serde_json",
- "thiserror",
-]
-
-[[package]]
-name = "sem-lang-language"
-version = "0.10.0"
-source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "c88796a43fc4a6d4e8ce7ffa1af8e4541718732049f7846f487574c345720c1d"
-dependencies = [
- "sem-lang-core",
- "sem-lang-linguistics",
- "sem-lang-vocab",
- "serde_json",
- "thiserror",
-]
-
-[[package]]
-name = "sem-lang-linguistics"
-version = "0.10.0"
-source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "0ca050bfaa48555a7058e62eef6ea854b1f8f5a58114f04caeeb30fc1daf3e61"
-dependencies = [
- "sem-lang-core",
- "serde",
- "serde_json",
- "thiserror",
-]
-
-[[package]]
-name = "sem-lang-repository"
-version = "0.10.0"
-source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "8a502718dd072094fdc4cc726a1d8b39725d4817400bd9969a15a05c897147d6"
-dependencies = [
- "sem-lang-core",
- "serde",
- "serde_json",
- "thiserror",
- "zixcel-revision",
-]
-
-[[package]]
-name = "sem-lang-vocab"
-version = "0.10.0"
-source = "sparse+https://ecosystem-private.invalid/cargo/index/"
-checksum = "48cc94badd054a73664881a38db6d2e1d85bf9fb28149e223c2535adc0661a81"
-dependencies = [
- "sem-lang-core",
- "sem-lang-linguistics",
- "serde",
- "serde_json",
- "thiserror",
-]
 
 [[package]]
 name = "serde"
@@ -653,6 +558,15 @@ name = "zixcel-interaction"
 version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2c9c8438609dbf0dd8d577da4d9c92f18ceebb0cc1c5d6284726ffc4600cc4da"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "zixcel-json-structure"
+version = "0.1.0"
+source = "git+https://github.com/zixcel/document-processing?rev=a171286c1676a8bbaa7d5c32e7cd131a293fcc4d#a171286c1676a8bbaa7d5c32e7cd131a293fcc4d"
 dependencies = [
  "serde",
  "serde_json",
