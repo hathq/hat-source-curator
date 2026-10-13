@@ -34,3 +34,26 @@ Use the package scripts/owner CI above and the repository README for exact comma
 ## Acceptance record
 
 Inventory baseline source: `9e308acba0684955d96c3678d8f3081a1986888b`. This baseline records observed files and declared interfaces, not a completed audit. Subsequent source changes are accepted at their exact commit with test evidence. Production hosting, account login, secret custody installation and data migration remain outside source-only acceptance.
+
+## Current implemented source boundary
+
+| Interface | Owned result | Excluded responsibility |
+| --- | --- | --- |
+| `structure::decompose(Decomposition)` / default CLI | Bounded generic SourceTree from an explicit JSON pointer | Language context, meaning and grants |
+| `structure::decompose_graph` / `graph` | Explicit external graph scalar representation | Reading a product DB or inferring domain meaning |
+| `interpretation::interpret` / `contribution` | Preserve original HatSpec contribution and locate source observations | Semantic adoption and operations |
+| `input::OwnerInput` / `input-seal`, `input-contract`, `input-bind` | Exact declaration digest, source revision and declared editable bindings | Secret fields, undeclared edits and source-file mutation |
+| `input_service::serve` / `hat-source-input` | Bounded one-request Unix transport with stale-generation rejection | Credential custody and product runtime activation |
+
+Generic shape is reused from `zixcel/document-processing` at its exact Git commit,
+with no private registry, Sem-lang dependency or adjacent checkout. The service
+composition callback is explicitly provided by the trusted owner; generic serving
+returns SourceTree and supplies no language defaults. Private language owners can
+attach an explicitly provided context in a separate integration fixture. Hatter
+keeps subject/current semantic revision checks at product admission.
+
+Public source CI runs tests and Clippy independently. Synthetic private consumer
+acceptance now uses actual owner processes and the public source producer; that
+proves composition, not a signed official catalog or live environment deployment.
+Changed source API and its Git-only structural dependency remain unreleased until
+registry version, archive and consumer acceptance are reviewed separately.
