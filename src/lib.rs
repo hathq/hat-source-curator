@@ -2,6 +2,7 @@
 
 use std::collections::BTreeSet;
 pub mod input;
+pub mod input_service;
 pub mod interpretation;
 pub mod structure;
 
