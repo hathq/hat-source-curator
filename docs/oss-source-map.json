@@ -1,0 +1,148 @@
+{
+  "repository": "hathq/hat-source-curator",
+  "purpose": "Turn an explicitly selected document into source-linked structural input for downstream interpretation.",
+  "responsibility_boundary": "This HAT role owns its declared product invocation and exact capability/scope binding. Shared transport, document handling and authorization primitives use their managed owners. A role declaration alone is not evidence of an implemented external action.",
+  "packages": [
+    {
+      "manifest": "Cargo.toml",
+      "package": "hat-source-curator",
+      "ecosystem": "rust",
+      "description": "External source decomposition and owner-declared input binding for HAT workflows",
+      "interfaces": {
+        "lib": "src/lib.rs",
+        "features": {},
+        "bins": [
+          {
+            "name": "hat-source-curator-worker",
+            "path": "src/main.rs"
+          }
+        ],
+        "public_modules": [
+          "input",
+          "input_service",
+          "interpretation",
+          "structure"
+        ],
+        "public_reexports": [],
+        "implicit_bins": [
+          "src/bin/hat-source-decompose.rs",
+          "src/bin/hat-source-input.rs"
+        ]
+      },
+      "declared_commands": {}
+    }
+  ],
+  "schema_definitions": [
+    "schemas/knowledge-source-v1.schema.json",
+    "schemas/review-source-event-v1.schema.json",
+    "schemas/review-source-input-v1.schema.json",
+    "schemas/review-source-output-v1.schema.json",
+    "schemas/review-source-projection-v1.schema.json"
+  ],
+  "test_sources": [
+    "src/bin/hat-source-input.rs",
+    "src/input_service.rs",
+    "src/main.rs",
+    "src/worker.rs",
+    "tests/contracts.rs",
+    "tests/input.rs",
+    "tests/structure.rs"
+  ],
+  "example_sources": [
+    "playground/source-structure/README.md",
+    "playground/source-structure/input.json"
+  ],
+  "workflow_definitions": [
+    {
+      "path": ".github/workflows/oss-policy.yml",
+      "jobs": [
+        {
+          "job": "repository-policy",
+          "condition": null,
+          "runs_on": "ubuntu-latest",
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "uses": "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "condition": null
+            },
+            {
+              "name": "Verify repository policy",
+              "run": "python3 .github/oss-policy-check.py",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": "Verify policy regression tests",
+              "run": "cd .github && python3 -m unittest discover -s policy-tests",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": "Check policy types",
+              "run": "python3 -m venv \"$RUNNER_TEMP/policy-types\"\n\"$RUNNER_TEMP/policy-types/bin/pip\" install -r .github/policy/requirements.txt\n\"$RUNNER_TEMP/policy-types/bin/mypy\" --strict .github/policy .github/oss-policy-check.py .github/policy-tests\n",
+              "uses": null,
+              "condition": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": ".github/workflows/source-acceptance.yml",
+      "jobs": [
+        {
+          "job": "verify",
+          "condition": null,
+          "runs_on": "ubuntu-24.04",
+          "steps": [
+            {
+              "name": null,
+              "run": null,
+              "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "condition": null
+            },
+            {
+              "name": "Use an independent public Cargo home",
+              "run": "echo \"CARGO_HOME=$RUNNER_TEMP/public-cargo\" >> \"$GITHUB_ENV\"",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": "Install supported Rust and source checks",
+              "run": "rustup toolchain install 1.97 --profile minimal --component rustfmt --component clippy",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": null,
+              "run": "cargo +1.97 fmt --all -- --check",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": null,
+              "run": "cargo +1.97 test --locked --all-features",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": null,
+              "run": "cargo +1.97 clippy --locked --all-targets --all-features -- -D warnings",
+              "uses": null,
+              "condition": null
+            },
+            {
+              "name": "Exercise source-only CLI with synthetic data",
+              "run": "cargo +1.97 run --locked --bin hat-source-decompose < playground/source-structure/input.json",
+              "uses": null,
+              "condition": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "evidence_policy": "Declarations and source paths are not proof of an executed acceptance. Exact CI head and result are recorded separately. No live accounts or production acceptance is inferred."
+}
