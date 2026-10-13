@@ -1,0 +1,25 @@
+name: Independent public source acceptance
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      CARGO_HOME: ${{ runner.temp }}/public-cargo
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install supported Rust and source checks
+        run: rustup toolchain install 1.97 --profile minimal --component rustfmt --component clippy
+      - run: cargo +1.97 fmt --all -- --check
+      - run: cargo +1.97 test --locked --all-features
+      - run: cargo +1.97 clippy --locked --all-targets --all-features -- -D warnings
+      - name: Exercise source-only CLI with synthetic data
+        run: cargo +1.97 run --locked --bin hat-source-decompose < playground/source-structure/input.json

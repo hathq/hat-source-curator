@@ -1,11 +1,11 @@
 //! Source-owner editable input bindings. The public declaration never contains paths.
 //! A caller must obtain this private plan from its trusted input provider, not a browser.
 use crate::structure::{Decomposition, decompose};
-use sem_lang_frontend::current::structural::StructuralInput;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use std::collections::{BTreeMap, BTreeSet};
 use zixcel_interaction::{InputDeclaration, InvokeRequest, validate_invoke};
+use zixcel_json_structure::SourceTree;
 
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -85,7 +85,7 @@ impl OwnerInput {
     /// No mutation of source documents, semantic state, Role or control references.
     /// # Errors
     /// Refuses stale identity, undeclared fields, failed constraints and unavailable source.
-    pub fn bind(&self, request: &InvokeRequest) -> Result<StructuralInput, &'static str> {
+    pub fn bind(&self, request: &InvokeRequest) -> Result<SourceTree, &'static str> {
         self.validate()?;
         validate_invoke(&self.declaration.action, request, &self.source_revision)
             .map_err(|_| "source-input-request-rejected")?;
@@ -113,7 +113,6 @@ impl OwnerInput {
             reference: self.source.reference.clone(),
             document,
             pointer: self.source.pointer.clone(),
-            context: self.source.context.clone(),
             budget: self.source.budget.clone(),
         })
     }

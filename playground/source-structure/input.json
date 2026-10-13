@@ -1,0 +1,6 @@
+{
+  "reference": "source:synthetic-document",
+  "document": { "items": ["example", { "name": "synthetic" }] },
+  "pointer": "/items",
+  "budget": { "max_nodes": 128, "max_depth": 16, "max_bytes": 65536 }
+}

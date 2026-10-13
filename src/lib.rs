@@ -1,9 +1,9 @@
 #![forbid(unsafe_code)]
 
 use std::collections::BTreeSet;
+pub mod input;
 pub mod interpretation;
 pub mod structure;
-pub mod input;
 
 pub const PACKAGE_JSON: &str = include_str!("../hat.package.json");
 pub const PACKAGE_ID: &str = "hat/source-curator";
