@@ -566,7 +566,7 @@ dependencies = [
 [[package]]
 name = "zixcel-json-structure"
 version = "0.1.0"
-source = "git+https://github.com/zixcel/document-processing?rev=08ab9c16b77590b66f4c1f39b225f4c51797a111#08ab9c16b77590b66f4c1f39b225f4c51797a111"
+source = "git+https://github.com/zixcel/document-processing?rev=a171286c1676a8bbaa7d5c32e7cd131a293fcc4d#a171286c1676a8bbaa7d5c32e7cd131a293fcc4d"
 dependencies = [
  "serde",
  "serde_json",
