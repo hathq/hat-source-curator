@@ -1,0 +1,6 @@
+{
+  "repository": "hathq/hat-source-curator",
+  "github_id": 1400852947,
+  "package_id": "hat/source-curator",
+  "binary": "hat-source-curator-worker"
+}
