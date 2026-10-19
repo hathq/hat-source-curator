@@ -36,3 +36,11 @@ Generic JSON decomposition is owned by `zixcel-json-structure` in `zixcel/docume
 Dependency updates: [repository policy](docs/dependency-updates.md).
 
 [Independent HAT build and release](docs/hat-release.md).
+
+## Operational catalog source contract
+
+The current source package has no linguistic clause frames. Its catalog and
+foundation dependency digests follow the declared HatSpec source dependency.
+This source change does not replace previously signed release bytes. A new
+immutable release identity and consumer acceptance are required before distributing
+the changed package; language meaning/adoption remains with sem-lang.

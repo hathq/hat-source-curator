@@ -77,7 +77,7 @@
     "identity": {
       "catalog_id": "hat-source-curator",
       "version": 1,
-      "digest_sha256": "48ec92467f4ceca865d19c26e399a6363fe3bedffc9603a039e3633cf4cbd935"
+      "digest_sha256": "43b687174bd01c0822fc6d4565f0450b30fc1a1456ca240ed1571029f990a1c6"
     },
     "owner_repository_id": "hat-source-curator",
     "foundation": false,
@@ -85,7 +85,7 @@
       {
         "catalog_id": "hathq.foundation",
         "version": 1,
-        "digest_sha256": "6b618dff030e551bafd6b1a70fe6daf71e2873de9c2230f4cf71e9ac9fbf2c0f"
+        "digest_sha256": "7ed387a86fe00a320784c181a2128da856ccb3e5e3930040ca39d9f5b627a465"
       }
     ],
     "incompatibilities": [],
@@ -93,7 +93,7 @@
       {
         "reference": {
           "catalog_id": "hat-source-curator",
-          "catalog_digest_sha256": "48ec92467f4ceca865d19c26e399a6363fe3bedffc9603a039e3633cf4cbd935",
+          "catalog_digest_sha256": "43b687174bd01c0822fc6d4565f0450b30fc1a1456ca240ed1571029f990a1c6",
           "term_id": "hathq://vocabulary/entity/knowledge-source/v1",
           "version": 1,
           "definition_digest_sha256": "fd9fcd2eee012fe2789ff04747d88806982b6502a0b9693e73476e60259435f9",
@@ -109,7 +109,7 @@
       {
         "reference": {
           "catalog_id": "hat-source-curator",
-          "catalog_digest_sha256": "48ec92467f4ceca865d19c26e399a6363fe3bedffc9603a039e3633cf4cbd935",
+          "catalog_digest_sha256": "43b687174bd01c0822fc6d4565f0450b30fc1a1456ca240ed1571029f990a1c6",
           "term_id": "hathq://vocabulary/state/source-classification/v1",
           "version": 1,
           "definition_digest_sha256": "2ef5af2ca017a005ec6ab6e4efc05c418077a9433a5fd6883581c677b395d7ae",
@@ -125,7 +125,7 @@
       {
         "reference": {
           "catalog_id": "hat-source-curator",
-          "catalog_digest_sha256": "48ec92467f4ceca865d19c26e399a6363fe3bedffc9603a039e3633cf4cbd935",
+          "catalog_digest_sha256": "43b687174bd01c0822fc6d4565f0450b30fc1a1456ca240ed1571029f990a1c6",
           "term_id": "hathq://vocabulary/action/review-source/v1",
           "version": 1,
           "definition_digest_sha256": "59a350bb16486acab3b9660cdc88f025d7d339dde0dfab1c7af525e55712526b",
@@ -139,36 +139,6 @@
         "range": []
       }
     ],
-    "lexicalizations": [],
-    "frames": [
-      {
-        "frame_id": "review-source-procedure-frame",
-        "definition_digest_sha256": "66967d47aab60508b4b66a4e56f444ddd3393bd77d5788eda74148e57e1e2601",
-        "predicate": {
-          "catalog_id": "hat-source-curator",
-          "catalog_digest_sha256": "48ec92467f4ceca865d19c26e399a6363fe3bedffc9603a039e3633cf4cbd935",
-          "term_id": "hathq://vocabulary/action/review-source/v1",
-          "version": 1,
-          "definition_digest_sha256": "59a350bb16486acab3b9660cdc88f025d7d339dde0dfab1c7af525e55712526b",
-          "kind": "action"
-        },
-        "roles": [
-          {
-            "role": "actor",
-            "required": true,
-            "accepted_kinds": [
-              "entity-type"
-            ]
-          },
-          {
-            "role": "object",
-            "required": true,
-            "accepted_kinds": [
-              "concept"
-            ]
-          }
-        ]
-      }
-    ]
+    "lexicalizations": []
   }
 }
