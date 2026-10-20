@@ -2,5 +2,10 @@
   "repository": "hathq/hat-source-curator",
   "github_id": 1400852947,
   "package_id": "hat/source-curator",
-  "binary": "hat-source-curator-worker"
+  "binary": "hat-source-curator-worker",
+  "required_workflows": [
+    ".github/workflows/oss-policy.yml",
+    ".github/workflows/release-hat.yml",
+    ".github/workflows/source-acceptance.yml"
+  ]
 }

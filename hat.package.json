@@ -2,13 +2,13 @@
   "schema": "hathq://hat/package/v2",
   "package_id": "hat/source-curator",
   "repository_id": "hat-source-curator",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "specification_version": "1.0.0",
   "manifest": {
     "schema": "hathq://hat/manifest/v1",
     "id": "hat/source-curator",
     "name": "Source Curator",
-    "version": "0.10.0",
+    "version": "0.10.1",
     "capabilities": [
       "source-input-binding",
       "source-evaluation",
