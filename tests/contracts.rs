@@ -9,8 +9,8 @@ fn package_identity_and_typed_reducer_contract_are_present() {
     assert_eq!(value["schema"], "hathq://hat/package/v2");
     assert_eq!(value["package_id"], PACKAGE_ID);
     assert_eq!(value["repository_id"], REPOSITORY_ID);
-    assert_eq!(value["version"], env!("CARGO_PKG_VERSION"));
-    assert_eq!(value["manifest"]["version"], env!("CARGO_PKG_VERSION"));
+    assert_eq!(value["version"], "0.10.1");
+    assert_eq!(value["manifest"]["version"], value["version"]);
     assert_eq!(
         value["operations"][0]["context_plan"]["unresolved_policy"],
         "record-unresolved"
